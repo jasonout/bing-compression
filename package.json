@@ -1,0 +1,9 @@
+{
+  "name": "bing-compression",
+  "version": "1.0.0",
+  "description": "Node.js implementation of Bing Point Compression Algorithm",
+  "main": "index.js",
+  "repository": "https://github.com/jasonout/bing-compression.git",
+  "author": "Jason Swartout <jason@stratusdata.com>",
+  "license": "MIT"
+}
