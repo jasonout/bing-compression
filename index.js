@@ -1,5 +1,5 @@
 
-const SAFE_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
+var SAFE_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
 
 // https://stackoverflow.com/questions/19213148/javascript-convert-a-52-bit-integer-to-20-bit-and-32-bit-integers#19274574
 function int52_30_get_lo(i) {
@@ -16,18 +16,18 @@ function int52_30_new_safe(hi, lo) {
 
 // http://msdn.microsoft.com/en-us/library/jj158958.aspx
 function compress(points) {
-	let latitude = 0;
-	let longitude = 0;
+	var latitude = 0;
+	var longitude = 0;
 
-	let string = [];
+	var string = [];
 
-	points.forEach(point => {
+	points.forEach(function (point) {
 		// Fallback to .lat or .lng properties
-		const newLatitude = Math.round((point[0] || point.lat) * 100000);
-		const newLongitude = Math.round((point[1] || point.lng) * 100000);
+		var newLatitude = Math.round((point[0] || point.lat) * 100000);
+		var newLongitude = Math.round((point[1] || point.lng) * 100000);
 
-		let dy = newLatitude - latitude;
-		let dx = newLongitude - longitude;
+		var dy = newLatitude - latitude;
+		var dx = newLongitude - longitude;
 
 		latitude = newLatitude;
 		longitude = newLongitude;
@@ -35,10 +35,10 @@ function compress(points) {
 		dy = (dy << 1) ^ (dy >> 31);
 		dx = (dx << 1) ^ (dx >> 31);
 
-		let index = ((dy + dx) * (dy + dx + 1) / 2) + dy;
+		var index = ((dy + dx) * (dy + dx + 1) / 2) + dy;
 
 		while (index > 0) {
-			let rem = index & 31;
+			var rem = index & 31;
 			index = (index - rem) / 32;
 
 			if (index > 0) {
