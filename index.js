@@ -114,6 +114,6 @@ function decompress(data) {
 };
 
 module.exports = {
-	compress,
-	decompress
+	compress: compress,
+	decompress: decompress
 };
